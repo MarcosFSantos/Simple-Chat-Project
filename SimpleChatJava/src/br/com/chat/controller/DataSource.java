@@ -60,10 +60,14 @@ public class DataSource {
             System.out.println("DataSouce established connection sucefully");
             
         }
-        catch(Exception e){
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error establishing database connection: "+e.getMessage());
         }
         
+    }
+
+    public Connection getConn() {
+        return this.conn;
     }
     
     

@@ -66,10 +66,18 @@ public class DataSource {
         
     }
 
-    public Connection getConn() {
+    public Connection getConnection() {
         return this.conn;
     }
     
+    public void closeConnection(){
+        try{
+            conn.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error in closing database connection: "+e.getMessage());
+        }
+    }
     
     
 }

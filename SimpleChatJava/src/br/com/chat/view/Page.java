@@ -4,6 +4,8 @@
  */
 package br.com.chat.view;
 
+import br.com.chat.controller.DataSource;
+
 /**
  *
  * Página principal do sistema.

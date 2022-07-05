@@ -15,7 +15,7 @@ import java.sql.DriverManager;
  * 
  * @author Marcos
  */
-public class DataSouce {
+public class DataSource {
     
     private String username;
     private String password;
@@ -24,11 +24,16 @@ public class DataSouce {
     private int port;
     private String database;
     
-    private Connection connection;
+    private Connection conn;
     
     /**
-     * Método resposável por estabelecer a conexão e retornar qualquer erro.error establishing database connection
+     * Método resposável por estabelecer a conexão e retornar qualquer erro.
      */
+    
+    public DataSource(){
+        createConnection();
+    }
+    
     private void createConnection(){
     /*
     Preencha as variáveis abaixo com os seguintes dados:
@@ -42,13 +47,17 @@ public class DataSouce {
     */
         try{
             
-            
             username = "";
             hostname = "";
             port = 0000;
             password = "";
             database = "";
             
+            String url = "jdbc:mysql://"+hostname+":"+port+"/"+database;
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            conn = DriverManager.getConnection(url);
+            
+            System.out.println("DataSouce established connection sucefully");
             
         }
         catch(Exception e){
@@ -57,7 +66,6 @@ public class DataSouce {
         
     }
     
-    //String url = "jdbc:mysql://"+hostname+":"+port+"/"+database;
     
     
 }

@@ -4,6 +4,11 @@
  */
 package br.com.chat.controller;
 
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
  * Classe que faz a conexão com o banco de dados MySQL.
@@ -12,24 +17,47 @@ package br.com.chat.controller;
  */
 public class DataSouce {
     
+    private String username;
+    private String password;
+    
+    private String hostname;
+    private int port;
+    private String database;
+    
+    private Connection connection;
+    
+    /**
+     * Método resposável por estabelecer a conexão e retornar qualquer erro.error establishing database connection
+     */
+    private void createConnection(){
     /*
     Preencha as variáveis abaixo com os seguintes dados:
-    
+
         username - nome do seu usuário MySQL.
         hostname - nome do host da conexão MySQL onde o banco de dados está.
         port - porta da conexão MySQL onde o banco de dados está.
         password - senha da conexão MySQL caso haja.
         database - nome do seu banco de dados.
-        
+
     */
-    
-    String username = "";
-    String password = "";
-    
-    String hostname = "";
-    int port = 000;
-    String database = "";
+        try{
+            
+            
+            username = "";
+            hostname = "";
+            port = 0000;
+            password = "";
+            database = "";
+            
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error establishing database connection: "+e.getMessage());
+        }
+        
+    }
     
     //String url = "jdbc:mysql://"+hostname+":"+port+"/"+database;
+    
     
 }

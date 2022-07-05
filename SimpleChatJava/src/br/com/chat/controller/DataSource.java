@@ -55,13 +55,16 @@ public class DataSource {
             
             String url = "jdbc:mysql://"+hostname+":"+port+"/"+database;
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            conn = DriverManager.getConnection(url);
+            conn = DriverManager.getConnection(url, username, password);
             
             System.out.println("DataSouce established connection sucefully");
             
         }
         catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error establishing database connection: "+e.getMessage());
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
         }
         
     }

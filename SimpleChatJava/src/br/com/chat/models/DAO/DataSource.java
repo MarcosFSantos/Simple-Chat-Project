@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.chat.controller;
+package br.com.chat.models.DAO;
 
 import java.sql.SQLException;
 import javax.swing.JOptionPane;

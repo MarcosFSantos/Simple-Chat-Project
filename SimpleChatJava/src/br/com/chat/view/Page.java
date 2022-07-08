@@ -4,7 +4,7 @@
  */
 package br.com.chat.view;
 
-import br.com.chat.controller.DataSource;
+import br.com.chat.models.DAO.DataSource;
 
 /**
  *

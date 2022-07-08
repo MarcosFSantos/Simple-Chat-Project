@@ -5,7 +5,6 @@
 package br.com.chat.models.DAO;
 
 import br.com.chat.models.User;
-import com.mysql.cj.protocol.Resultset;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.PreparedStatement;
@@ -44,6 +43,11 @@ public class UserDAO {
             
             String SQL = "SELECT * FROM chat.user;";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {                
+                
+            }
             
             return data;
             

@@ -12,4 +12,16 @@ package br.com.chat.models.DAO;
  */
 public class UserDAO {
     
+    private DataSource dataSource;
+    
+    /**
+     *
+     * Construtor da classe UserDAO.
+     * 
+     * @param dataSource
+     */
+    public UserDAO(DataSource dataSource){
+        this.dataSource = dataSource;
+    }
+    
 }

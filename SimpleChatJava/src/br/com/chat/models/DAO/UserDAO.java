@@ -4,6 +4,12 @@
  */
 package br.com.chat.models.DAO;
 
+import br.com.chat.models.User;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  *
  * Classe responsável por manipular os dados dos objetos no banco de dados.
@@ -24,4 +30,14 @@ public class UserDAO {
         this.dataSource = dataSource;
     }
     
+    /**
+     * Retorna todos os usuários do banco de dados no formato de uma lista de objetos.
+     * 
+     * @return data
+     */
+    public List<User> read(){
+        List<User> data = new ArrayList<>();
+        
+        return data;
+    }
 }

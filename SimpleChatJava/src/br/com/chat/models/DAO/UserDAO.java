@@ -5,9 +5,11 @@
 package br.com.chat.models.DAO;
 
 import br.com.chat.models.User;
+import com.mysql.cj.protocol.Resultset;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -38,6 +40,21 @@ public class UserDAO {
     public List<User> read(){
         List<User> data = new ArrayList<>();
         
-        return data;
+        try{
+            
+            String SQL = "SELECT * FROM chat.user;";
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
+            
+            return data;
+            
+        }
+        catch(SQLException e){
+            System.out.println("Error in retrieve data: "+e.getMessage());
+        }
+        catch(Exception e){
+            System.out.println("Error: "+e.getMessage());
+        }
+        return null;
+        
     }
 }

@@ -76,11 +76,19 @@ public class UserDAO {
      */
     public void create(User user){
         String SQL = "insert into chat.user(username, password) values(?, ?)";
-        //PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
+        PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
         
+        try {
+            
+        }
+        catch (SQLException e) {
+            System.out.println("Error in save data: "+e.getMessage());
+        }
+        catch (Exception e) {
+            System.out.println("Error: "+e.getMessage());
+        }
         
-        
-        //ps.close();
+        ps.close();
     }
     
     

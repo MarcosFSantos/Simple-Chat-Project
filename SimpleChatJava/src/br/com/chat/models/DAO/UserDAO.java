@@ -68,4 +68,15 @@ public class UserDAO {
         return null;
         
     }
+    
+    /**
+     * Adiciona informações de um objeto no banco de dados.
+     * 
+     * @param user
+     */
+    public void create(User user){
+        
+    }
+    
+    
 }

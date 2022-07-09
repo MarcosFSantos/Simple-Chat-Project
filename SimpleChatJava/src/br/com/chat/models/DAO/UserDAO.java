@@ -68,4 +68,34 @@ public class UserDAO {
         return null;
         
     }
+    
+    /**
+     * Adiciona informações de um objeto no banco de dados.
+     * 
+     * @param user
+     */
+    public void create(User user) throws SQLException {
+        String SQL = "insert into chat.user(username, password) values(?, ?)";
+        PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
+        
+        try {
+            
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            
+            ps.executeUpdate();
+            
+        }
+        catch (SQLException e) {
+            System.out.println("Error in save data: "+e.getMessage());
+        }
+        catch (Exception e) {
+            System.out.println("Error: "+e.getMessage());
+        }
+        finally{
+            ps.close();
+        }
+    }
+    
+    
 }

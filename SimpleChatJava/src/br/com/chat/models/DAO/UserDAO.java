@@ -75,7 +75,12 @@ public class UserDAO {
      * @param user
      */
     public void create(User user){
+        String SQL = "insert into chat.user(username, password) values(?, ?)";
+        //PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
         
+        
+        
+        //ps.close();
     }
     
     

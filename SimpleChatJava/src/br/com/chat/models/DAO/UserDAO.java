@@ -74,11 +74,16 @@ public class UserDAO {
      * 
      * @param user
      */
-    public void create(User user){
+    public void create(User user) throws SQLException {
         String SQL = "insert into chat.user(username, password) values(?, ?)";
         PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
         
         try {
+            
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getPassword());
+            
+            ps.executeUpdate();
             
         }
         catch (SQLException e) {
@@ -87,8 +92,9 @@ public class UserDAO {
         catch (Exception e) {
             System.out.println("Error: "+e.getMessage());
         }
-        
-        ps.close();
+        finally{
+            ps.close();
+        }
     }
     
     

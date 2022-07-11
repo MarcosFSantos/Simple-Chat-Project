@@ -28,7 +28,7 @@ public class SignUpController {
      * Esse método checa se os campos dados como parâmetros estâo ou não vazios.
      * 
      * @param field
-     * @return boolean value
+     * @return valor boleano
      */
     public boolean checkEmptyField(String field){
         if (field.equals("")){
@@ -40,4 +40,20 @@ public class SignUpController {
         }
     }
     
+    /**
+     * Esse método checa se a senha e a senha de confirmação dadas pelo usário são iguais.
+     * 
+     * @param password
+     * @param confirmPassword
+     * @return valor boleano
+     */
+    public boolean checkEqualsPassword(String password, String confirmPassword){
+        if (password.equals(confirmPassword)){
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Password must be the same!");
+            return false;
+        }
+    }
 }

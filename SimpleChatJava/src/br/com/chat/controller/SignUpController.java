@@ -11,5 +11,8 @@ package br.com.chat.controller;
  * @author Marcos
  */
 public class SignUpController {
+    private String username;
+    private String password;
+    
     
 }

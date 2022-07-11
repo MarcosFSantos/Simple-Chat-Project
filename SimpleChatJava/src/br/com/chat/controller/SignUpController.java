@@ -4,6 +4,12 @@
  */
 package br.com.chat.controller;
 
+import br.com.chat.models.DAO.DataSource;
+import br.com.chat.models.DAO.UserDAO;
+import br.com.chat.models.User;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +23,15 @@ public class SignUpController {
     private String password;
     private String confirmPassword;
     
+    DataSource dataSource = new DataSource();
+    
+    /**
+     * Construtor da classe SignUpController.
+     *
+     * @param username
+     * @param password
+     * @param confirmPassword
+     */
     public SignUpController(String username, String password, String confirmPassword){
         
         this.username = username;
@@ -25,9 +40,28 @@ public class SignUpController {
         
     }
     
-    /*
-    public void createUser(){}
-    */
+    /**
+     * Esse método passa as informações do usuário para o método create() da classe de acesso ao banco de dados, criando assim a conta do usuário no banco de dados.
+     */
+    public void createUser(){
+        
+        try {
+            
+            User user = new User();
+            UserDAO userDao = new UserDAO(dataSource);
+
+            user.setUsername(username);
+            user.setPassword(password);
+            userDao.create(user);
+            
+        } catch (SQLException ex) {
+            
+            JOptionPane.showMessageDialog(null, "Error in save data: "+ex.getMessage());
+            
+        }
+        
+        
+    }
 
     /**
      * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
@@ -38,7 +72,7 @@ public class SignUpController {
                 &&  checkEqualsPassword(password, confirmPassword)
             ){
             
-            //createUser();
+            createUser();
             
         }
     }

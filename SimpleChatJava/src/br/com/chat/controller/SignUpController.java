@@ -25,6 +25,24 @@ public class SignUpController {
         
     }
     
+    /*
+    public void createUser(){}
+    */
+
+    /**
+     * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
+     */
+    public void validateFields(){
+        if (checkEmptyField(username) == false 
+                &&  checkEmptyField(password) == false 
+                &&  checkEqualsPassword(password, confirmPassword)
+            ){
+            
+            //createUser();
+            
+        }
+    }
+    
     /**
      * Esse método checa se os campos dados como parâmetros estâo ou não vazios.
      * 
@@ -57,4 +75,5 @@ public class SignUpController {
             return false;
         }
     }
+    
 }

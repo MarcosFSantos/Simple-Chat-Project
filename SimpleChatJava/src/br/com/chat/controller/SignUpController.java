@@ -15,12 +15,13 @@ import javax.swing.JOptionPane;
 public class SignUpController {
     private String username;
     private String password;
+    private String confirmPassword;
     
     public SignUpController(String username, String password, String confirmPassword){
         
         this.username = username;
-        
-        
+        this.password = password;
+        this.confirmPassword = confirmPassword;
         
     }
     

@@ -4,6 +4,8 @@
  */
 package br.com.chat.view;
 
+import br.com.chat.controller.SignUpController;
+
 /**
  *
  * @author Marcos
@@ -28,12 +30,12 @@ public class SignUp extends javax.swing.JFrame {
 
         titulo = new javax.swing.JLabel();
         sendButton = new javax.swing.JButton();
-        field1 = new javax.swing.JTextField();
-        field2 = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        field3 = new javax.swing.JTextField();
+        confirmPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Sign Up");
@@ -45,10 +47,15 @@ public class SignUp extends javax.swing.JFrame {
         titulo.setText("Sign Up");
 
         sendButton.setText("Send");
-
-        field1.addActionListener(new java.awt.event.ActionListener() {
+        sendButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                field1ActionPerformed(evt);
+                sendButtonActionPerformed(evt);
+            }
+        });
+
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
             }
         });
 
@@ -72,11 +79,11 @@ public class SignUp extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
                             .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
-                            .addComponent(field1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(field2)
+                            .addComponent(username, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(password)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(field3))))
+                            .addComponent(confirmPassword))))
                 .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
@@ -86,15 +93,15 @@ public class SignUp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(field1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(field2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(field3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -104,9 +111,19 @@ public class SignUp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_field1ActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_field1ActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
+        // TODO add your handling code here:
+        String usernameField = username.getText();
+        String passwordField = password.getText();
+        String confirmPasswordField = confirmPassword.getText();
+        
+        SignUpController sUpController = new SignUpController(usernameField, passwordField, confirmPasswordField);
+        sUpController.validateFields();
+    }//GEN-LAST:event_sendButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,13 +162,13 @@ public class SignUp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField field1;
-    private javax.swing.JTextField field2;
-    private javax.swing.JTextField field3;
+    private javax.swing.JTextField confirmPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField password;
     private javax.swing.JButton sendButton;
     private javax.swing.JLabel titulo;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

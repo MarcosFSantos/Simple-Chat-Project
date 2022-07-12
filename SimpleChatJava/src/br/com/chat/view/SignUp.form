@@ -41,11 +41,11 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="sendButton" alignment="0" pref="348" max="32767" attributes="0"/>
-                          <Component id="field1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="field2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="username" alignment="1" max="32767" attributes="0"/>
+                          <Component id="password" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="field3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="confirmPassword" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -60,15 +60,15 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="field1" min="-2" max="-2" attributes="0"/>
+              <Component id="username" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="field2" min="-2" max="-2" attributes="0"/>
+              <Component id="password" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="field3" min="-2" max="-2" attributes="0"/>
+              <Component id="confirmPassword" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="58" max="32767" attributes="0"/>
               <Component id="sendButton" min="-2" pref="36" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -90,13 +90,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Send"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="field1">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="field1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="field2">
+    <Component class="javax.swing.JTextField" name="username">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usernameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="password">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -113,7 +116,7 @@
         <Property name="text" type="java.lang.String" value="Confirm Password:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="field3">
+    <Component class="javax.swing.JTextField" name="confirmPassword">
     </Component>
   </SubComponents>
 </Form>

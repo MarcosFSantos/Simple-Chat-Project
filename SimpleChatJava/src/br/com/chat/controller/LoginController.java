@@ -7,6 +7,7 @@ package br.com.chat.controller;
 import br.com.chat.models.DAO.DataSource;
 import br.com.chat.models.User;
 import br.com.chat.models.DAO.UserDAO;
+import br.com.chat.view.Page;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -48,6 +49,12 @@ public class LoginController {
         }
     }
     
+    /**
+     * Retorna o usuário do banco de dados que contém o username passado como parâmetro.
+     * 
+     * @param username
+     * @return
+     */
     public User searchInDatabase(String username){
         DataSource dataSource = new DataSource();
         UserDAO userDao = new UserDAO(dataSource);
@@ -71,4 +78,28 @@ public class LoginController {
         return null;
     }
     
+    /**
+     * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
+     */
+    public void validateFields(){
+        if (checkEmptyField(username) == false 
+                &&  checkEmptyField(password) == false
+            ){
+            
+            User user;
+            
+            if (searchInDatabase(username) == null){
+                user = searchInDatabase(username);
+                validateUser(user);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Conta não existe ou incorreta!");
+            }
+            
+        }
+    }
+    
+    public void validateUser(User user){
+        
+    }
 }

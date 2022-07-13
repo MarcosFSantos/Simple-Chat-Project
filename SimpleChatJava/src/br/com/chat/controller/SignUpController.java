@@ -8,8 +8,6 @@ import br.com.chat.models.DAO.DataSource;
 import br.com.chat.models.DAO.UserDAO;
 import br.com.chat.models.User;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**

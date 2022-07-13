@@ -100,6 +100,13 @@ public class LoginController {
     }
     
     public void validateUser(User user){
-        
+        if (user.getPassword().equals(password)){
+            Page page = new Page();
+            //page.doSomething(user); in future the main page will use this user information.
+            System.out.println("password correct");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "The username or password you entered is incorrect!", "Error", 3);
+        }
     }
 }

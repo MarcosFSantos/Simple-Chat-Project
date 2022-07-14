@@ -4,6 +4,8 @@
  */
 package br.com.chat.view;
 
+import br.com.chat.controller.LoginController;
+
 /**
  *
  * @author Marcos
@@ -31,7 +33,7 @@ public class Login extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        sendBuutton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         signUpButton = new javax.swing.JButton();
 
@@ -48,7 +50,12 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setText("Password:");
 
-        jButton1.setText("Send");
+        sendBuutton.setText("Send");
+        sendBuutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendBuuttonActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Don't have an account?");
 
@@ -79,7 +86,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(username)
                     .addComponent(password)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
+                    .addComponent(sendBuutton, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,7 +106,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(signUpButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sendBuutton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -112,6 +119,12 @@ public class Login extends javax.swing.JFrame {
         SignUp signUp = new SignUp();
         signUp.setVisible(true);
     }//GEN-LAST:event_signUpButtonActionPerformed
+
+    private void sendBuuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBuuttonActionPerformed
+        // TODO add your handling code here:
+        LoginController controller = new LoginController(username.getText(), password.getText());
+        controller.validateFields();
+    }//GEN-LAST:event_sendBuuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,12 +162,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField password;
+    private javax.swing.JButton sendBuutton;
     private javax.swing.JButton signUpButton;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables

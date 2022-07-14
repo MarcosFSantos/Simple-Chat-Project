@@ -88,17 +88,21 @@ public class LoginController {
             
             User user;
             
-            if (searchInDatabase(username) == null){
+            if (searchInDatabase(username) != null){
                 user = searchInDatabase(username);
                 validateUser(user);
             }
             else{
-                JOptionPane.showMessageDialog(null, "Conta não existe ou incorreta!");
+                JOptionPane.showMessageDialog(null, "Account does not exist!");
             }
             
         }
     }
     
+    /**
+     * Esse método vai validar se a senha digita pelo o usuário é a mesma presente no banco de dados daquela conta.
+     * @param user
+     */
     public void validateUser(User user){
         if (user.getPassword().equals(password)){
             Page page = new Page();

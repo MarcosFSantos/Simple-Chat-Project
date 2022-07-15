@@ -16,9 +16,7 @@ import javax.swing.JOptionPane;
  * 
  * @author Marcos
  */
-public class SignUpController {
-    private String username;
-    private String password;
+public class SignUpController extends UserAccount {
     private String confirmPassword;
     
     DataSource dataSource = new DataSource();
@@ -64,6 +62,7 @@ public class SignUpController {
     /**
      * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
      */
+    @Override
     public void validateFields(){
         if (checkEmptyField(username) == false 
                 &&  checkEmptyField(password) == false 
@@ -81,6 +80,7 @@ public class SignUpController {
      * @param field
      * @return valor boleano
      */
+    @Override
     public boolean checkEmptyField(String field){
         if (field.equals("")){
             JOptionPane.showMessageDialog(null, "Fields can not be empty!");

@@ -17,10 +17,7 @@ import javax.swing.JOptionPane;
  * 
  * @author Marcos
  */
-public class LoginController {
-    
-    private String username;
-    private String password;
+public class LoginController extends UserAccount {
     
     /**
      * Construtor da classe LoginController
@@ -39,6 +36,7 @@ public class LoginController {
      * @param field
      * @return
      */
+    @Override
     public boolean checkEmptyField(String field){
         if (field.equals("")){
             JOptionPane.showMessageDialog(null, "Fields can not be empty!");
@@ -81,6 +79,7 @@ public class LoginController {
     /**
      * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
      */
+    @Override
     public void validateFields(){
         if (checkEmptyField(username) == false 
                 &&  checkEmptyField(password) == false

@@ -12,4 +12,7 @@ package br.com.chat.controller;
  */
 public abstract class UserAccount {
     
+    protected String username;
+    protected String password;
+    
 }

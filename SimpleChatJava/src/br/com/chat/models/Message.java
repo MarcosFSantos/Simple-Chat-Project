@@ -12,8 +12,46 @@ package br.com.chat.models;
  */
 public class Message {
     
+    private int id;
     private String time;
     private String text;
+    private int userId;
+
+    /**
+     * Retorna o atributo userId da instância.
+     * 
+     * @return
+     */
+    public int getUserId() {
+        return userId;
+    }
+
+    /**
+     * Atribui um valor ao atributo userId da instância.
+     * 
+     * @param userId
+     */
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    /**
+     * Retorna o atributo id da instância.
+     * 
+     * @return
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Atribui um valor ao atributo id da instância.
+     * 
+     * @param id
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
     /**
      * Retorna o atributo time da instância.

@@ -15,4 +15,8 @@ public abstract class UserAccount {
     protected String username;
     protected String password;
     
+    abstract protected void checkEmptyField();
+    
+    abstract protected void validateFields();
+    
 }

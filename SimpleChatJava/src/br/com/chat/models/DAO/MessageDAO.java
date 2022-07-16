@@ -79,6 +79,11 @@ public class MessageDAO {
             
             PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
             
+            ps.setString(1, message.getText());
+            ps.setString(2, message.getTime());
+            ps.setInt(3, user.getId());
+            ps.executeUpdate();
+            
         }
         catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Error in retrieve data: "+ex.getMessage());

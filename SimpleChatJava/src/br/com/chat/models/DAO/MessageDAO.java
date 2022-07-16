@@ -72,6 +72,13 @@ public class MessageDAO {
         return null;
     }
     
+    /**
+     * Adiciona informações de uma mensagem no banco de dados.
+     * 
+     * @param message
+     * @param user
+     * @throws SQLException
+     */
     public void create(Message message, User user) throws SQLException{
         String SQL = "insert into chat.message(text, time, user_id) values(?, ?, ?)";
         PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);

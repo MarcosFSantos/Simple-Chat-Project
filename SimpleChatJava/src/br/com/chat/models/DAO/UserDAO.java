@@ -70,9 +70,10 @@ public class UserDAO {
     }
     
     /**
-     * Adiciona informações de um objeto no banco de dados.
+     * Adiciona informações de um usuário no banco de dados.
      * 
      * @param user
+     * @throws SQLException
      */
     public void create(User user) throws SQLException {
         String SQL = "insert into chat.user(username, password) values(?, ?)";

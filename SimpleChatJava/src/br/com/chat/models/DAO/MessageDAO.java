@@ -5,6 +5,7 @@
 package br.com.chat.models.DAO;
 
 import br.com.chat.models.Message;
+import br.com.chat.models.User;
 import java.util.List;
 import java.util.ArrayList;
 import java.sql.PreparedStatement;
@@ -62,12 +63,29 @@ public class MessageDAO {
             
         }
         catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "error in retrieve data: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error in retrieve data: "+ex.getMessage());
         }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "error: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
         }
         
         return null;
+    }
+    
+    public void create(Message message, User user){
+        String SQL = "insert into chat.message(text, time, user_id) values(?, ?, ?)";
+        
+        try{
+            
+            PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
+            
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error in retrieve data: "+ex.getMessage());
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
+        }
+        
     }
 }

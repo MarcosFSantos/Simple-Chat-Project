@@ -72,12 +72,11 @@ public class MessageDAO {
         return null;
     }
     
-    public void create(Message message, User user){
+    public void create(Message message, User user) throws SQLException{
         String SQL = "insert into chat.message(text, time, user_id) values(?, ?, ?)";
+        PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
         
         try{
-            
-            PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
             
             ps.setString(1, message.getText());
             ps.setString(2, message.getTime());
@@ -90,6 +89,9 @@ public class MessageDAO {
         }
         catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
+        }
+        finally{
+            ps.close();
         }
         
     }

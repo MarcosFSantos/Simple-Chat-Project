@@ -102,4 +102,13 @@ public class MessageDAO {
         }
         
     }
+    
+    /**
+     * Exclui uma mensagem do banco de dados.
+     * 
+     * @param message
+     */
+    public void delete(Message message){
+        
+    }
 }

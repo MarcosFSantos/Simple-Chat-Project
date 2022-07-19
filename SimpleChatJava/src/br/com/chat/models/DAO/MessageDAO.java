@@ -126,5 +126,8 @@ public class MessageDAO {
         catch(Exception ex){
             JOptionPane.showMessageDialog(null, "error: "+ex.getMessage());
         }
+        finally{
+            ps.close();
+        }
     }
 }

@@ -109,6 +109,14 @@ public class MessageDAO {
      * @param message
      */
     public void delete(Message message){
+        String SQL = "delete from chat.message where id=?;";
         
+        try{}
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "error in exclude data: "+ex.getMessage());
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "error: "+ex.getMessage());
+        }
     }
 }

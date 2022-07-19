@@ -102,4 +102,32 @@ public class MessageDAO {
         }
         
     }
+    
+    /**
+     * Exclui uma mensagem do banco de dados.
+     * 
+     * @param message
+     * @throws java.sql.SQLException
+     */
+    public void delete(Message message) throws SQLException{
+        String SQL = "delete from chat.message where id=?;";
+        PreparedStatement ps = dataSource.getConnection().prepareStatement(SQL);
+        
+        try{
+            
+            ps.setInt(1, message.getId());
+            
+            ps.executeUpdate();
+            
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "error in exclude data: "+ex.getMessage());
+        }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "error: "+ex.getMessage());
+        }
+        finally{
+            ps.close();
+        }
+    }
 }

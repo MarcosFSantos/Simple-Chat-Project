@@ -13,6 +13,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.table.TableModel;
 import javax.swing.table.DefaultTableModel;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -64,7 +66,22 @@ public class PageController {
      */
     public void sendMessage(String text, User user){
         Message message = new Message();
+        String time = currentDateTime();
         
+        message.setText(text);
+        message.setTime(time);
+        
+        try{
+            
+            MessageDAO messageDao = new MessageDAO(dataSource);
+            messageDao.create(message, user);
+            
+        }
+        catch(SQLException e){
+            
+            JOptionPane.showMessageDialog(null, "Error in save data: "+e.getMessage());
+            
+        }
         
     }
     

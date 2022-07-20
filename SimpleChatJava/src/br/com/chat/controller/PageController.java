@@ -9,6 +9,7 @@ import br.com.chat.models.DAO.MessageDAO;
 import br.com.chat.models.Message;
 import br.com.chat.models.User;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.table.TableModel;
 import javax.swing.table.DefaultTableModel;
@@ -73,8 +74,11 @@ public class PageController {
      * @return
      */
     public String currentDateTime(){
-        String curentDateTime = "";
+        String currentDateTime;
         
-        return curentDateTime;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+        currentDateTime = dtf.format(LocalDateTime.now());
+        
+        return currentDateTime;
     }
 }

@@ -9,6 +9,7 @@ import br.com.chat.models.DAO.MessageDAO;
 import br.com.chat.models.Message;
 import java.util.List;
 import javax.swing.table.TableModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * 
@@ -24,15 +25,32 @@ public class PageController {
      * Esse método retorna as menssagens do banco de dados no formato de uma tabela.
      * 
      * @param dataModel
-     * @return dataModel
+     * @return model
      */
     public TableModel showMessages(TableModel dataModel){
         MessageDAO messageDao = new MessageDAO(dataSource);
         List<Message> list = messageDao.read();
+        DefaultTableModel model = (DefaultTableModel) dataModel;
         
+        if (list != null){
+            model.setNumRows(0);
+            
+            for (Message m : list) {
+                model.addRow(
+                        
+                        new Object[]{
+                            m.getId(), 
+                            m.getText(), 
+                            m.getTime(), 
+                            m.getUserId()
+                        }
+                        
+                );
+            }
+            
+        }
         
-        
-        return dataModel;
+        return model;
     }
     
 }

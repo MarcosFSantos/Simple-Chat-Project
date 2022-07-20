@@ -4,6 +4,10 @@
  */
 package br.com.chat.controller;
 
+import br.com.chat.models.DAO.DataSource;
+import br.com.chat.models.DAO.MessageDAO;
+import br.com.chat.models.Message;
+import java.util.List;
 import javax.swing.table.TableModel;
 
 /**
@@ -14,6 +18,8 @@ import javax.swing.table.TableModel;
  */
 public class PageController {
     
+    DataSource dataSource = new DataSource();
+    
     /**
      * Esse método retorna as menssagens do banco de dados no formato de uma tabela.
      * 
@@ -21,6 +27,8 @@ public class PageController {
      * @return dataModel
      */
     public TableModel showMessages(TableModel dataModel){
+        MessageDAO messageDao = new MessageDAO(dataSource);
+        List<Message> list = messageDao.read();
         
         
         

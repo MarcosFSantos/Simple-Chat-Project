@@ -6,6 +6,7 @@ package br.com.chat.controller;
 
 import br.com.chat.models.DAO.DataSource;
 import br.com.chat.models.DAO.MessageDAO;
+import br.com.chat.models.DAO.UserDAO;
 import br.com.chat.models.Message;
 import br.com.chat.models.User;
 import java.time.LocalDateTime;
@@ -32,25 +33,39 @@ public class PageController {
      * @param dataModel
      * @return model
      */
-    public TableModel showMessages(TableModel dataModel){
+    public TableModel showMessages(TableModel dataModel, User user){
         MessageDAO messageDao = new MessageDAO(dataSource);
-        List<Message> list = messageDao.read();
+        UserDAO userDao = new UserDAO(dataSource);
+        List<Message> listMessages = messageDao.read();
+        List<User> listUsers = userDao.read();
         DefaultTableModel model = (DefaultTableModel) dataModel;
         
-        if (list != null){
+        if (listMessages != null){
             model.setNumRows(0);
             
-            for (Message m : list) {
-                model.addRow(
+            for (Message m : listMessages) {
+                String username;
+                
+                /*
+                
+                Vai procurar na lista de usuários existentes o usuario que mandou a mensagem e então mandar as informações
+                da mensagem para a tabela, contendo tabém  o username do usuário.
+                
+                */
+                for (User u : listUsers) {
+                    if (m.getUserId() == u.getId()){
+                        username = u.getUsername();
                         
-                        new Object[]{
-                            m.getId(), 
-                            m.getText(), 
-                            m.getTime(), 
-                            m.getUserId()
-                        }
+                        model.addRow(
+                            new Object[]{
+                                username,
+                                m.getTime(), 
+                                m.getText()
+                            }
+                        );
                         
-                );
+                    }
+                }
             }
             
         }

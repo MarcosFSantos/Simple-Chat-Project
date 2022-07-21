@@ -33,7 +33,7 @@ public class PageController {
      * @param dataModel
      * @return model
      */
-    public TableModel showMessages(TableModel dataModel, User user){
+    public TableModel showMessages(TableModel dataModel){
         MessageDAO messageDao = new MessageDAO(dataSource);
         UserDAO userDao = new UserDAO(dataSource);
         List<Message> listMessages = messageDao.read();
@@ -58,6 +58,7 @@ public class PageController {
                         
                         model.addRow(
                             new Object[]{
+                                m.getId(),
                                 username,
                                 m.getTime(), 
                                 m.getText()
@@ -112,5 +113,43 @@ public class PageController {
         currentDateTime = dtf.format(LocalDateTime.now());
         
         return currentDateTime;
+    }
+    
+    /**
+     * Esse método exclui uma mensagem do banco de dados.
+     * 
+     * @param dataModel
+     * @param selectedRow
+     */
+    public void deleteMessage(TableModel dataModel, int selectedRow){
+        
+        if (selectedRow == -1){
+            JOptionPane.showMessageDialog(null, "First, select the message you want to delete.");
+        }
+        else{
+            
+            int id = (int) dataModel.getValueAt(selectedRow, 0);
+            
+            try{
+                
+                MessageDAO messageDao = new MessageDAO(dataSource);
+                Message message = new Message();
+                
+                message.setId(id);
+                
+                messageDao.delete(message);
+                
+                JOptionPane.showMessageDialog(null, "Message deleted sulcefully.");
+                
+            }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "error in exclude data: "+e.getMessage());
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "error: "+e.getMessage());
+            }
+            
+        }
+        
     }
 }

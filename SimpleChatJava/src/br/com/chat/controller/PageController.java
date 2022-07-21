@@ -139,6 +139,8 @@ public class PageController {
                 
                 messageDao.delete(message);
                 
+                JOptionPane.showMessageDialog(null, "Message deleted sulcefully.");
+                
             }
             catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "error in exclude data: "+e.getMessage());

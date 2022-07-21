@@ -58,6 +58,7 @@ public class PageController {
                         
                         model.addRow(
                             new Object[]{
+                                m.getId(),
                                 username,
                                 m.getTime(), 
                                 m.getText()
@@ -126,6 +127,8 @@ public class PageController {
             JOptionPane.showMessageDialog(null, "First, select the message you want to delete.");
         }
         else{
+            
+            
             
         }
         

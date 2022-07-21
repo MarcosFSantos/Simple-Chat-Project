@@ -80,7 +80,7 @@ public class LoginController extends UserAccount {
      * Esse método verifica se os campos digitados pelo usuáio são ou não válidos, se for, 
      * ele irá chamar o método que verifica a conta e abre a página principal e retornar se a pagina foi aberta.
      * 
-     * @return 
+     * @return isOpen
      */
     @Override
     public boolean validateFields(){

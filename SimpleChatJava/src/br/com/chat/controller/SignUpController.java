@@ -37,9 +37,11 @@ public class SignUpController extends UserAccount {
     }
     
     /**
-     * Esse método passa as informações do usuário para o método create() da classe de acesso ao banco de dados, criando assim a conta do usuário no banco de dados.
+     * Esse método passa as informações do usuário para o método create() da classe de acesso ao banco de dados, 
+     * criando assim a conta do usuário no banco de dados e retorando se a conta foi criada.
+     * @return boolean value
      */
-    public void createUser(){
+    public boolean createUser(){
         
         try {
             
@@ -49,10 +51,12 @@ public class SignUpController extends UserAccount {
             user.setUsername(username);
             user.setPassword(password);
             userDao.create(user);
+            return true;
             
         } catch (SQLException ex) {
             
             JOptionPane.showMessageDialog(null, "Error in save data: "+ex.getMessage());
+            return false;
             
         }
         
@@ -60,18 +64,23 @@ public class SignUpController extends UserAccount {
     }
 
     /**
-     * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
+     * Esse método verifica se os campos digitados pelo usuáio são ou não válidos, se for, 
+     * ele irá chamar o método de criação de usuário e retornar se foi ou não criado.
+     * 
+     * @return isCreated
      */
     @Override
-    public void validateFields(){
+    public boolean validateFields(){
+        boolean isCreated = false;
         if (checkEmptyField(username) == false 
                 &&  checkEmptyField(password) == false 
                 &&  checkEqualsPassword(password, confirmPassword)
             ){
             
-            createUser();
+            isCreated = createUser();
             
         }
+        return isCreated;
     }
     
     /**

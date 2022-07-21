@@ -122,7 +122,9 @@ public class SignUp extends javax.swing.JFrame {
         String confirmPasswordField = confirmPassword.getText();
         
         SignUpController sUpController = new SignUpController(usernameField, passwordField, confirmPasswordField);
-        sUpController.validateFields();
+        if (sUpController.validateFields()){
+            setVisible(false);
+        }
     }//GEN-LAST:event_sendButtonActionPerformed
 
     /**

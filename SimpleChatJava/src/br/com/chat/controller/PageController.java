@@ -130,6 +130,23 @@ public class PageController {
             
             int id = (int) dataModel.getValueAt(selectedRow, 0);
             
+            try{
+                
+                MessageDAO messageDao = new MessageDAO(dataSource);
+                Message message = new Message();
+                
+                message.setId(id);
+                
+                messageDao.delete(message);
+                
+            }
+            catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "error in exclude data: "+e.getMessage());
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "error: "+e.getMessage());
+            }
+            
         }
         
     }

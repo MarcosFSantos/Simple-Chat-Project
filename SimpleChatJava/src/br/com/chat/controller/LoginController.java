@@ -77,10 +77,14 @@ public class LoginController extends UserAccount {
     }
     
     /**
-     * Esse método verifica se os campos digitados pelo usuáio são ou não válidos.
+     * Esse método verifica se os campos digitados pelo usuáio são ou não válidos, se for, 
+     * ele irá chamar o método que verifica a conta e abre a página principal e retornar se a pagina foi aberta.
+     * 
+     * @return 
      */
     @Override
-    public void validateFields(){
+    public boolean validateFields(){
+        boolean isOpen = false;
         if (checkEmptyField(username) == false 
                 &&  checkEmptyField(password) == false
             ){
@@ -89,28 +93,33 @@ public class LoginController extends UserAccount {
             
             if (searchInDatabase(username) != null){
                 user = searchInDatabase(username);
-                validateUser(user);
+                isOpen = validateUser(user);
             }
             else{
                 JOptionPane.showMessageDialog(null, "Account does not exist!");
+                isOpen = false;
             }
             
         }
+        return isOpen;
     }
     
     /**
      * Esse método vai validar se a senha digita pelo o usuário é a mesma presente no banco de dados daquela conta.
      * @param user
+     * @return boolean value
      */
-    public void validateUser(User user){
+    public boolean validateUser(User user){
         if (user.getPassword().equals(password)){
             Page page = new Page();
             page.setUser(user);
             page.setVisible(true);
             System.out.println("password correct");
+            return true;
         }
         else{
             JOptionPane.showMessageDialog(null, "The username or password you entered is incorrect!", "Error", 3);
+            return false;
         }
     }
 }

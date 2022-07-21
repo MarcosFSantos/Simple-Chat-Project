@@ -123,7 +123,9 @@ public class Login extends javax.swing.JFrame {
     private void sendBuuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBuuttonActionPerformed
         // TODO add your handling code here:
         LoginController controller = new LoginController(username.getText(), password.getText());
-        controller.validateFields();
+        if (controller.validateFields()){
+            setVisible(false);
+        }
     }//GEN-LAST:event_sendBuuttonActionPerformed
 
     /**

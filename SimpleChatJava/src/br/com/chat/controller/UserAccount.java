@@ -17,6 +17,6 @@ public abstract class UserAccount {
     
     abstract protected boolean checkEmptyField(String field);
     
-    abstract protected void validateFields();
+    abstract protected boolean validateFields();
     
 }

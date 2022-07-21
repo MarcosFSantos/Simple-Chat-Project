@@ -105,7 +105,8 @@ public class LoginController extends UserAccount {
     public void validateUser(User user){
         if (user.getPassword().equals(password)){
             Page page = new Page();
-            //page.doSomething(user); in future the main page will use this user information.
+            page.setUser(user);
+            page.setVisible(true);
             System.out.println("password correct");
         }
         else{

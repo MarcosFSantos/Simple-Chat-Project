@@ -4,7 +4,7 @@
  */
 package br.com.chat.view;
 
-import br.com.chat.models.DAO.DataSource;
+import br.com.chat.models.User;
 
 /**
  *
@@ -13,12 +13,22 @@ import br.com.chat.models.DAO.DataSource;
  * @author Marcos
  */
 public class Page extends javax.swing.JFrame {
+    
+    private User user;
 
     /**
      * Creates new form Page
      */
     public Page() {
         initComponents();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**

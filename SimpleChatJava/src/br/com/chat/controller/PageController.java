@@ -122,6 +122,12 @@ public class PageController {
      */
     public void deleteMessage(TableModel dataModel, int selectedRow){
         
+        if (selectedRow == -1){
+            JOptionPane.showMessageDialog(null, "First, select the message you want to delete.");
+        }
+        else{
+            
+        }
         
     }
 }

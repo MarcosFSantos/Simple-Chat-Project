@@ -33,7 +33,7 @@ public class PageController {
      * @param dataModel
      * @return model
      */
-    public TableModel showMessages(TableModel dataModel, User user){
+    public TableModel showMessages(TableModel dataModel){
         MessageDAO messageDao = new MessageDAO(dataSource);
         UserDAO userDao = new UserDAO(dataSource);
         List<Message> listMessages = messageDao.read();
@@ -112,5 +112,16 @@ public class PageController {
         currentDateTime = dtf.format(LocalDateTime.now());
         
         return currentDateTime;
+    }
+    
+    /**
+     * Esse método exclui uma mensagem do banco de dados.
+     * 
+     * @param dataModel
+     * @param selectedRow
+     */
+    public void deleteMessage(TableModel dataModel, int selectedRow){
+        
+        
     }
 }

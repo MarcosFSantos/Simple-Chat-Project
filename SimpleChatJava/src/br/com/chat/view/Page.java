@@ -47,7 +47,7 @@ public class Page extends javax.swing.JFrame {
 
             },
             new String [] {
-                "User", "Time", "Message"
+                "id", "User", "Time", "Message"
             }
         ));
         chat.setMinimumSize(new java.awt.Dimension(44, 0));

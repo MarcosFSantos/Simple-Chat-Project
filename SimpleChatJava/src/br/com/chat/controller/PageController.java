@@ -128,7 +128,7 @@ public class PageController {
         }
         else{
             
-            
+            int id = (int) dataModel.getValueAt(selectedRow, 0);
             
         }
         

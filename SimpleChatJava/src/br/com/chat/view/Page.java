@@ -157,6 +157,8 @@ public class Page extends javax.swing.JFrame {
 
     private void sendButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButton1ActionPerformed
         // TODO add your handling code here:
+        pController.sendMessage(textArea.getText(), user);
+        textArea.setText("");
     }//GEN-LAST:event_sendButton1ActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed

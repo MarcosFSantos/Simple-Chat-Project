@@ -68,6 +68,7 @@ public class LoginController extends UserAccount {
                 result.setUsername(u.getUsername());
                 result.setPassword(u.getPassword());
                 
+                dataSource.closeConnection();
                 return result;
                 
             }

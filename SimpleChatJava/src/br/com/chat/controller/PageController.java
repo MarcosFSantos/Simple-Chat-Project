@@ -91,6 +91,7 @@ public class PageController {
             
             MessageDAO messageDao = new MessageDAO(dataSource);
             messageDao.create(message, user);
+            JOptionPane.showMessageDialog(null, "Message send.");
             
         }
         catch(SQLException e){
@@ -109,7 +110,7 @@ public class PageController {
     public String currentDateTime(){
         String currentDateTime;
         
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         currentDateTime = dtf.format(LocalDateTime.now());
         
         return currentDateTime;

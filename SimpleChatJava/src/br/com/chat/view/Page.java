@@ -149,7 +149,10 @@ public class Page extends javax.swing.JFrame {
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        Login login = new Login();
+        login.setVisible(true);
+        setVisible(false);
+        dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void sendButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButton1ActionPerformed

@@ -159,11 +159,13 @@ public class Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         pController.sendMessage(textArea.getText(), user);
         textArea.setText("");
+        this.chat.setModel(pController.showMessages(chat.getModel()));
     }//GEN-LAST:event_sendButton1ActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
         pController.deleteMessage(chat.getModel(), chat.getSelectedRow());
+        this.chat.setModel(pController.showMessages(chat.getModel()));
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed

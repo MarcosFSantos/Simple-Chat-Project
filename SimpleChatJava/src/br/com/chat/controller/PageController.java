@@ -85,22 +85,33 @@ public class PageController {
         Message message = new Message();
         String time = currentDateTime();
         
-        message.setText(text);
-        message.setTime(time);
+        if(text.equals("") == false){
         
-        try{
-            
-            MessageDAO messageDao = new MessageDAO(dataSource);
-            messageDao.create(message, user);
-            JOptionPane.showMessageDialog(null, "Message send.");
-            
+            message.setText(text);
+            message.setTime(time);
+
+            try{
+
+                MessageDAO messageDao = new MessageDAO(dataSource);
+                messageDao.create(message, user);
+                JOptionPane.showMessageDialog(null, "Message send.");
+
+            }
+            catch(SQLException e){
+
+                JOptionPane.showMessageDialog(null, "Error in save data: "+e.getMessage());
+
+            }
+            catch(Exception e){
+
+                JOptionPane.showMessageDialog(null, "Error: "+e.getMessage());
+
+            }
+
         }
-        catch(SQLException e){
-            
-            JOptionPane.showMessageDialog(null, "Error in save data: "+e.getMessage());
-            
+        else{
+            JOptionPane.showMessageDialog(null, "Type a message first!");
         }
-        
     }
     
     /**

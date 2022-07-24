@@ -59,6 +59,7 @@ public class PageController {
                         model.addRow(
                             new Object[]{
                                 m.getId(),
+                                m.getUserId(),
                                 username,
                                 m.getTime(), 
                                 m.getText()

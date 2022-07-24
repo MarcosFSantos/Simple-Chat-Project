@@ -125,6 +125,7 @@ public class Login extends javax.swing.JFrame {
         LoginController controller = new LoginController(username.getText(), password.getText());
         if (controller.validateFields()){
             setVisible(false);
+            dispose();
         }
     }//GEN-LAST:event_sendBuuttonActionPerformed
 

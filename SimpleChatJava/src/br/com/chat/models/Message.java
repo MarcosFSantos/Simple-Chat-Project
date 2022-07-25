@@ -20,7 +20,7 @@ public class Message {
     /**
      * Retorna o atributo userId da instância.
      * 
-     * @return
+     * @return userId
      */
     public int getUserId() {
         return userId;
@@ -38,7 +38,7 @@ public class Message {
     /**
      * Retorna o atributo id da instância.
      * 
-     * @return
+     * @return id
      */
     public int getId() {
         return id;

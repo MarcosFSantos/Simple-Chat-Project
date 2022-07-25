@@ -26,10 +26,20 @@ public class Page extends javax.swing.JFrame {
         hideCollumns();
     }
 
+    /**
+     * Esse método retorna o valor do atributo user.
+     * 
+     * @return user
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * Esse método insere um valor no atributo user.
+     * 
+     * @param user
+     */
     public void setUser(User user) {
         this.user = user;
     }
@@ -148,6 +158,9 @@ public class Page extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Esse método esconde as duas primeiras colunas da tabela correspondente ao Id e ao UserId.
+     */
     private void hideCollumns(){
         this.chat.removeColumn(chat.getColumnModel().getColumn(0));
         this.chat.removeColumn(chat.getColumnModel().getColumn(0));

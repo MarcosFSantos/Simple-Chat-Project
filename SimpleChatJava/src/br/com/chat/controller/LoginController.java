@@ -34,7 +34,7 @@ public class LoginController extends UserAccount {
      * Esse método checa se os campos dados como parâmetros estâo ou não vazios.
      * 
      * @param field
-     * @return
+     * @return boolean value
      */
     @Override
     public boolean checkEmptyField(String field){
@@ -51,7 +51,7 @@ public class LoginController extends UserAccount {
      * Retorna o usuário do banco de dados que contém o username passado como parâmetro.
      * 
      * @param username
-     * @return
+     * @return result
      */
     public User searchInDatabase(String username){
         DataSource dataSource = new DataSource();

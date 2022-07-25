@@ -87,7 +87,7 @@ public class SignUpController extends UserAccount {
      * Esse método checa se os campos dados como parâmetros estâo ou não vazios.
      * 
      * @param field
-     * @return valor boleano
+     * @return boolean value
      */
     @Override
     public boolean checkEmptyField(String field){
@@ -105,7 +105,7 @@ public class SignUpController extends UserAccount {
      * 
      * @param password
      * @param confirmPassword
-     * @return valor boleano
+     * @return boolean value
      */
     public boolean checkEqualsPassword(String password, String confirmPassword){
         if (password.equals(confirmPassword)){

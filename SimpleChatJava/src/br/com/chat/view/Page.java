@@ -23,6 +23,7 @@ public class Page extends javax.swing.JFrame {
      */
     public Page() {
         initComponents();
+        hideCollumns();
     }
 
     public User getUser() {
@@ -147,6 +148,11 @@ public class Page extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void hideCollumns(){
+        this.chat.removeColumn(chat.getColumnModel().getColumn(0));
+        this.chat.removeColumn(chat.getColumnModel().getColumn(0));
+    }
+    
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
         Login login = new Login();

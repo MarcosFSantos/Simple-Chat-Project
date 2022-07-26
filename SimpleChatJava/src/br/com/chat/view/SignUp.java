@@ -65,6 +65,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel3.setText("Confirm Password:");
 
         sendButton.setText("Send");
+        sendButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sendButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sendButtonActionPerformed(evt);

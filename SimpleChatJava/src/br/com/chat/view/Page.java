@@ -76,6 +76,8 @@ public class Page extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Simple Chat");
 
+        jScrollPane3.setOpaque(false);
+
         chat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -84,9 +86,12 @@ public class Page extends javax.swing.JFrame {
                 "Id", "UserId", "Username", "Time", "Message"
             }
         ));
+        chat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chat.setOpaque(false);
         jScrollPane3.setViewportView(chat);
 
         sendButton1.setText("Send");
+        sendButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sendButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sendButton1ActionPerformed(evt);
@@ -94,6 +99,7 @@ public class Page extends javax.swing.JFrame {
         });
 
         deleteButton.setText("Delete");
+        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -101,6 +107,7 @@ public class Page extends javax.swing.JFrame {
         });
 
         refreshButton.setText("Refresh");
+        refreshButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshButtonActionPerformed(evt);
@@ -108,6 +115,7 @@ public class Page extends javax.swing.JFrame {
         });
 
         exitButton.setText("Exit");
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);

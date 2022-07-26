@@ -63,6 +63,7 @@ public class Login extends javax.swing.JFrame {
         signUpButton.setBorder(null);
         signUpButton.setBorderPainted(false);
         signUpButton.setContentAreaFilled(false);
+        signUpButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         signUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpButtonActionPerformed(evt);
@@ -70,6 +71,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         sendBuutton.setText("Send");
+        sendBuutton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sendBuutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sendBuuttonActionPerformed(evt);

@@ -33,7 +33,7 @@ public class PageController {
      * @param dataModel
      * @return model
      */
-    public TableModel showMessages(TableModel dataModel){
+    public TableModel showMessages(TableModel dataModel, User user){
         MessageDAO messageDao = new MessageDAO(dataSource);
         UserDAO userDao = new UserDAO(dataSource);
         List<Message> listMessages = messageDao.read();

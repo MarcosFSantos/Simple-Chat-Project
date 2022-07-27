@@ -5,7 +5,9 @@
 # Description:
 The Simple-Chat-Project have the intention of make a Java aplication where is present a chat where you can send messages and change the currently user, the aplicattion will store the user messages in a database with MySQL as DBMS, the goal of this project is to put in pratice my Java and MySQL knowledge.
 
-![Badge Finished](http://img.shields.io/static/v1?label=STATUS&message=Finished&color=GREEN&style=for-the-badge)
+# Status:
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=Finished&color=GREEN&style=for-the-badge"/>
 
 # :hammer: project features:
 

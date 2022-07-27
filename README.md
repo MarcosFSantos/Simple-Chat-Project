@@ -18,7 +18,9 @@ The Simple-Chat-Project have the intention of make a Java aplication where is pr
 
 Application demo video: https://youtu.be/IPUrDh095Tc
 
-![Demo gif](To_README\SimpleChat.gif)
+<p align="center">
+<img src="To_README\SimpleChat.gif"/>
+</p>
 
 # Open and Run:
 

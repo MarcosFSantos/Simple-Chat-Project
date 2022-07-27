@@ -56,7 +56,7 @@ public class PageController {
                     if (m.getUserId() == u.getId()){
                         username = u.getUsername();
                         
-                        if(isCurrentUser(username, user.getUsername()))
+                        if(isCurrentUser(u.getId(), user.getId()))
                             username = "You";
                         
                         model.addRow(
@@ -85,13 +85,11 @@ public class PageController {
      * @param currentUsername
      * @return
      */
-    public boolean isCurrentUser(String username, String currentUsername){
-        if (username.equals(currentUsername)){
+    public boolean isCurrentUser(int userId, int currentUserId){
+        if (currentUserId == userId){
             return true;
         }
-        else{
-            return false;
-        }
+        return false;
     }
     
     /**
@@ -153,12 +151,13 @@ public class PageController {
      * @param dataModel
      * @param selectedRow
      */
-    public void deleteMessage(TableModel dataModel, int selectedRow){
+    public void deleteMessage(TableModel dataModel, int selectedRow, User user){
         
         if (selectedRow == -1){
             JOptionPane.showMessageDialog(null, "First, select the message you want to delete.");
         }
         else{
+            
             
             int id = (int) dataModel.getValueAt(selectedRow, 0);
             

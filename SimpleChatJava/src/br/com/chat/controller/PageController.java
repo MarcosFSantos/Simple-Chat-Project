@@ -56,6 +56,9 @@ public class PageController {
                     if (m.getUserId() == u.getId()){
                         username = u.getUsername();
                         
+                        if(isCurrentUser(username, user.getUsername()))
+                            username = "You";
+                        
                         model.addRow(
                             new Object[]{
                                 m.getId(),
@@ -73,6 +76,22 @@ public class PageController {
         }
         
         return model;
+    }
+    
+    /**
+     * Esse método verifica os usernames de um usário e do usuário atual e retorna quando eles forem iguais.
+     * 
+     * @param username
+     * @param currentUsername
+     * @return
+     */
+    public boolean isCurrentUser(String username, String currentUsername){
+        if (username.equals(currentUsername)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     /**

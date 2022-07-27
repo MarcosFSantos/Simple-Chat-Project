@@ -56,7 +56,7 @@ public class PageController {
                     if (m.getUserId() == u.getId()){
                         username = u.getUsername();
                         
-                        if(isCurrentUser(username, user.getUsername()))
+                        if(isCurrentUser(u.getId(), user.getId()))
                             username = "You";
                         
                         model.addRow(
@@ -85,13 +85,11 @@ public class PageController {
      * @param currentUsername
      * @return
      */
-    public boolean isCurrentUser(String username, String currentUsername){
-        if (username.equals(currentUsername)){
+    public boolean isCurrentUser(int userId, int currentUserId){
+        if (currentUserId == userId){
             return true;
         }
-        else{
-            return false;
-        }
+        return false;
     }
     
     /**
@@ -152,8 +150,9 @@ public class PageController {
      * 
      * @param dataModel
      * @param selectedRow
+     * @param user
      */
-    public void deleteMessage(TableModel dataModel, int selectedRow){
+    public void deleteMessage(TableModel dataModel, int selectedRow, User user){
         
         if (selectedRow == -1){
             JOptionPane.showMessageDialog(null, "First, select the message you want to delete.");
@@ -161,24 +160,32 @@ public class PageController {
         else{
             
             int id = (int) dataModel.getValueAt(selectedRow, 0);
+            int userId = (int) dataModel.getValueAt(selectedRow, 1);
             
-            try{
-                
-                MessageDAO messageDao = new MessageDAO(dataSource);
-                Message message = new Message();
-                
-                message.setId(id);
-                
-                messageDao.delete(message);
-                
-                JOptionPane.showMessageDialog(null, "Message deleted sulcefully.");
-                
+            if(isCurrentUser(userId, user.getId())){
+            
+                try{
+
+                    MessageDAO messageDao = new MessageDAO(dataSource);
+                    Message message = new Message();
+
+                    message.setId(id);
+
+                    messageDao.delete(message);
+
+                    JOptionPane.showMessageDialog(null, "Message deleted sulcefully.");
+
+                }
+                catch(SQLException e){
+                    JOptionPane.showMessageDialog(null, "error in exclude data: "+e.getMessage());
+                }
+                catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "error: "+e.getMessage());
+                }
+            
             }
-            catch(SQLException e){
-                JOptionPane.showMessageDialog(null, "error in exclude data: "+e.getMessage());
-            }
-            catch(Exception e){
-                JOptionPane.showMessageDialog(null, "error: "+e.getMessage());
+            else{
+                JOptionPane.showMessageDialog(null, "You can only delete messages you sent.");
             }
             
         }

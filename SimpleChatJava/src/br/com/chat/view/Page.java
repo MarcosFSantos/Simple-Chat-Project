@@ -215,7 +215,7 @@ public class Page extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
-        pController.deleteMessage(chat.getModel(), chat.getSelectedRow());
+        pController.deleteMessage(chat.getModel(), chat.getSelectedRow(), user);
         this.chat.setModel(pController.showMessages(chat.getModel(), user));
     }//GEN-LAST:event_deleteButtonActionPerformed
 
